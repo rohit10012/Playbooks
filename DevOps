@@ -1,0 +1,19 @@
+DevOps Basics:
+building simple CI/CD pipeline:
+
+
+1. Clone a project from Github and make a Dockerfile of it: Follow TrainwithShubham video,
+2. Create a EC2 instance and install Jenkins on it: follow install Jenkins,
+3. configure jenkins user to nopassword inside pipeline:
+# Allow members of group sudo to execute any command
+%sudo   ALL=(ALL:ALL) ALL
+ubuntu ALL=(ALL) NOPASSWD: ALL
+jenkins ALL=(ALL) NOPASSWD: ALL
+
+4. Install git plugin on jenkins
+
+5. Create a shellscript on jenkins:
+cd /home/ubuntu/django-todo-cicd
+# Build the Docker image
+sudo docker build . -t todo-app
+sudo docker run -p 8000:8000 -d todo-app
